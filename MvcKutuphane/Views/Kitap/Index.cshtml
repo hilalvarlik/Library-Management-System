@@ -1,0 +1,79 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLKITAP>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Kitap Sayfası</h2>
+
+@using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+{
+    <!-- Kitap arama için text oluşturularak p değerine atanır ve controller tarafına gönderilir -->
+    <div style="margin-bottom:15px; margin-top:15px;">
+        <b>Aranacak Kitap Adını Giriniz: &nbsp;</b> @Html.TextBox("p")
+        <input type="submit" class="btn btn-warning" value="Kitabı Ara" />
+    </div>
+}
+
+
+<!-- Kitap listesi için tablo oluşturulur -->
+<table class="table table-striped">
+    <tr style="background-color:rgb(252,178,22);">
+
+        <th>Kitap Adı</th>
+        <th>Kitap Kategorisi</th>
+        <th>Kitap Yazarı</th>
+        <th>Basım Yılı</th>
+        <th>Yayınevi</th>
+        <th>Sayfa Sayısı</th>
+        <th>Durum</th>
+
+        <th>İŞLEMLER</th>
+
+    </tr>
+    <tbody>
+        <!-- kitapların listelenmesi için model classının y nesnesi ile döngü oluşturulur -->
+        @foreach (var y in Model)
+        {
+        <tr>
+
+
+            <td>@y.AD</td>
+            <td>@y.TBLKATEGORI.AD</td>
+            <td>@y.TBLYAZAR.AD @y.TBLYAZAR.SOYAD</td>
+            <td>@y.BASIMYIL</td>
+            <td>@y.YAYINEVI</td>
+            <td>@y.SAYFA</td>
+            <!-- Kitapların durum değerinin aktif/aktif değil olarak gözükmesi -->
+            @{
+                if (y.DURUM == false)
+                {
+                    <td>Aktif Değil</td>
+                }
+                else
+                {
+                    <td>Aktifdir</td>
+                }
+            }
+
+
+
+            <td>
+                <a href="/Kitap/KitapGetir/@y.ID" class="btn btn-group" style="background-color:#893c94;
+               color:white">GÜNCELLE</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Kitap/KitapEkle/" class="btn btn-primary">Yeni Kitap Ekle</a>
+
+
+
+
+
+
+
+

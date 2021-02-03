@@ -1,0 +1,30 @@
+﻿@model MvcKutuphane.Models.Entity.TBLYAZAR
+
+@{
+    ViewBag.Title = "YazarGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Yazar", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.HiddenFor(m => m.ID, new { @class = "form-control" })
+        <br />
+        <label>Yazar Adı</label>
+        @Html.TextBoxFor(m => m.AD, new { @class = "form-control" })
+        <br />
+        <label>Yazar Soyadı</label>
+        @Html.TextBoxFor(m => m.SOYAD, new { @class = "form-control" })
+        <br />
+        <label>Detay</label>
+        @Html.TextBoxFor(m => m.DETAY, new { @class = "form-control" })
+
+
+    </div>
+
+    <div>
+        <button class="btn btn-warning">Yazar Bilgilerini Güncelle</button>
+    </div>
+}
+

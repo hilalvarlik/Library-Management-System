@@ -1,0 +1,28 @@
+﻿@model MvcKutuphane.Models.Entity.TBLDUYURU
+@{
+    ViewBag.Title = "YeniDuyuru";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+    <form class="form-group" method="post">
+        <div style="margin-top:15px">
+            <label>Duyuru Kategorisi</label>
+            @Html.TextBoxFor(m => m.KATEGORI, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Duyuru İçeriği</label>
+            @Html.TextBoxFor(m => m.ICERIK, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Duyuru Tarihi</label>
+            @Html.TextBoxFor(m => m.TARIH, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Duyuru Ekle</button>
+        </div>
+
+    </form>

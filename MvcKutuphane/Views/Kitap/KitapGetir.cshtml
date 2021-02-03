@@ -1,0 +1,55 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+@using (Html.BeginForm("Guncelle", "Kitap", FormMethod.Post))
+{
+    <div class="form-group">
+
+        <!-- değer girilmesi istenilmeyen id değerinin form üzerinde gizli bir alan oluşturur -->
+        @Html.HiddenFor(m => m.ID, new { @class = "form-control" })
+        <br />
+        <div style="margin-top:15px">
+            <label>Kitap Adı</label>
+            @Html.TextBoxFor(m => m.AD, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Kategori</label>
+            <!-- Seçilen kitabın kategori bilgilerinin açılır liste getirilmesi -->
+            @Html.DropDownListFor(m => m.KATEGORI, (List<SelectListItem>)ViewBag.KAT, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Yazar</label>
+            @Html.DropDownListFor(m => m.YAZAR, (List<SelectListItem>)ViewBag.YAZ, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Basımyılı</label>
+            @Html.TextBoxFor(m => m.BASIMYIL, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Yayınevi</label>
+            @Html.TextBoxFor(m => m.YAYINEVI, new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Sayfa Sayısı</label>
+            @Html.TextBoxFor(m => m.SAYFA, new { @class = "form-control" })
+        </div>
+
+
+
+
+
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Kitap Bilgilerini Güncelle</button>
+        </div>
+
+        <input type="hidden" name="DURUM" value="True" />
+    </div>
+}

@@ -1,0 +1,61 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+@{
+    ViewBag.Title = "UyeEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    <form class="form-group" method="post">
+
+        <div style="margin-top:15px">
+            <label>Üye Adı</label>
+            @Html.TextBoxFor(m => m.AD, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.AD, "", new { @style = "color:forestgreen" })
+
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Üye Soyadı</label>
+            @Html.TextBoxFor(m => m.SOYAD, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SOYAD, "", new { @style = "color:forestgreen" })
+
+        </div>
+
+        <div style="margin-top:15px">
+            <label>E-mail</label>
+            @Html.TextBoxFor(m => m.MAIL, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.MAIL, "", new { @style = "color:forestgreen" })
+
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Kullanıcı Adı</label>
+            @Html.TextBoxFor(m => m.KULLANICIADI, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.KULLANICIADI, "", new { @style = "color:forestgreen" })
+
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Şifre</label>
+            @Html.TextBoxFor(m => m.SIFRE, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.SIFRE, "", new { @style = "color:forestgreen" })
+
+        </div>
+        <div style="margin-top:15px">
+            <label>Fotoğraf Linki</label>
+            @Html.TextBoxFor(m => m.FOTOGRAF, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.FOTOGRAF, "", new { @style = "color:forestgreen" })
+
+        </div>
+        <div style="margin-top:15px">
+            <label>Telefon Numarası</label>
+            @Html.TextBoxFor(m => m.TELEFON, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.TELEFON, "", new { @style = "color:forestgreen" })
+
+        </div>
+
+        <div style="margin-top:15px">
+            <button class="btn btn-info">Üye Ekle</button>
+        </div>
+
+    </form>
+

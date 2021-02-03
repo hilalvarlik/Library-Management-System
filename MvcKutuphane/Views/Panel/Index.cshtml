@@ -1,0 +1,58 @@
+﻿@model MvcKutuphane.Models.Entity.TBLUYELER
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+
+<h2>Kütüphane Üye Profil Bilgileri</h2>
+
+@using (Html.BeginForm("Index2", "Panel", FormMethod.Post)) { 
+<table class="table table-hover">
+    <tr>
+        <td>
+            <label style="font-weight:bolder">Kullanıcı Adı : </label>
+            <!--kimliği doğrulanan kullanıcının bilgileri name değerine göre doldurulur-->
+            @HttpContext.Current.User.Identity.Name
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Adı  @Html.TextBoxFor(x => x.AD, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Soyadı  @Html.TextBoxFor(x => x.SOYAD, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Mail  @Html.TextBoxFor(x => x.MAIL, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Telefon  @Html.TextBoxFor(x => x.TELEFON, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Şifre  <input type="text" class="form-control" name="SIFRE"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Fotoğraf  @Html.TextBoxFor(x => x.FOTOGRAF, new { @class = "form-control" })
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <button class="btn btn-group" style="background-color:#893c94;
+               color:white">
+                Bilgileri Güncelle
+            </button>
+        </td>
+    </tr>
+
+</table>
+}

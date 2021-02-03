@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "Duyurular";
+    Layout = "~/Views/Shared/LayoutPanel.cshtml";
+}
+
+<h2>Duyurular</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>Kategori</th>
+        <th>Tarih</th>
+    </tr>
+    <tbody>
+        @foreach (var pr in Model)
+        {
+            <tr>
+                <td>@pr.KATEGORI</td>
+                <td>@Convert.ToDateTime(pr.TARIH).ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+

@@ -1,0 +1,56 @@
+﻿@model MvcKutuphane.Models.Entity.TBLHAREKET
+@{
+    ViewBag.Title = "OduncIade";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+@using (Html.BeginForm("Guncelle", "Odunc", FormMethod.Post))
+{
+    <div style="margin-bottom:15px"></div>
+    <div class="form-group">
+
+        @Html.HiddenFor(m => m.ID, new { @class = "form-control" })
+        <br />
+        <label>Kitap Adı</label>
+        @Html.TextBoxFor(m => m.TBLKITAP.AD, new { @class = "form-control" })
+
+        <br />
+        <label>Üye</label>
+        @Html.TextBoxFor(m => m.TBLUYELER.AD, new { @class = "form-control" })
+
+        <br />
+        <label>Personel</label>
+        @Html.TextBoxFor(m => m.TBLPERSONEL.PERSONEL, new { @class = "form-control" })
+
+        <br />
+        <label>Alış Tarihi</label>
+        @Html.TextBoxFor(m => m.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+
+        <br />
+        <label>Normal İade Tarihi</label>
+        @Html.TextBoxFor(m => m.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+
+        <br />
+        <label>Üyenin Getirdiği Tarih</label>
+        <!--ödünç alınan tarihi alır-->
+        <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />
+
+        <br />
+        <label>Geç Gelen Gün Sayısı</label>
+        <!--geç getirilen gün sayısının gösterilmesi-->
+        <input type="text" class="form-control" id="Gecinput" value="@ViewBag.dgr" />
+
+
+    </div>
+
+    <div>
+        <button class="btn btn-group" style="background-color:#50a9aa;
+               color:white">
+            Ödünç Kitabı Geri Al
+        </button>
+    </div>
+}
+
+
+
+

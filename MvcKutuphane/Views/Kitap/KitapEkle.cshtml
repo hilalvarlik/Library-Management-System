@@ -1,0 +1,50 @@
+﻿@model MvcKutuphane.Models.Entity.TBLKITAP
+@{
+    ViewBag.Title = "KitapEkle";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+    <form class="form-group" method="post">
+
+        <div style="margin-top:15px">
+            <label>Kitap Adı</label>
+            <input type="text" class="form-control" name="AD" />
+        </div>
+        <!-- Kategori eklerken kategori seçeneğinin açılır liste ile seçilmesi için dropdown list oluşturulur -->
+        <div style="margin-top:15px">
+            <!-- Controllera gönderilen viewbag nesnesi ile veritabanına ekleme yapar -->
+            <label>Kategori</label>
+            @Html.DropDownListFor(m => m.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.KAT, "Seçiniz", new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Yazar</label>
+            @Html.DropDownListFor(m => m.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.YAZ, "Seçiniz", new { @class = "form-control" })
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Basımyılı</label>
+            <input type="text" class="form-control" name="BASIMYIL" />
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Yayınevi</label>
+            <input type="text" class="form-control" name="YAYINEVI" />
+        </div>
+
+        <div style="margin-top:15px">
+            <label>Sayfa Sayısı</label>
+            <input type="text" class="form-control" name="SAYFA" />
+        </div>
+
+
+        <div style="margin-top:15px">
+            <button class="btn btn-group" style="background-color:#e26912;
+               color:white">
+                Kitap Ekle
+            </button>
+        </div>
+        <input type="hidden" name="DURUM" value="True" />
+
+    </form>
+

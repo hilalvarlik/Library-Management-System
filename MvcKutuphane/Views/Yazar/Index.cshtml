@@ -1,0 +1,44 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLYAZAR>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Yazarlar</h2>
+
+<table class="table table-striped">
+    <tr style="background-color:#c2a5a5;">
+        
+        <th>AD</th>
+        <th>SOYAD</th>
+        
+
+        <th>İŞLEMLER</th>
+        <th>Yazar'ın Kitapları</th>
+    </tr>
+    <tbody>
+        @foreach (var y in Model)
+        {
+        <tr>
+
+
+            <td>@y.AD</td>
+            <td>@y.SOYAD</td>
+            
+
+
+            <td>
+                <a href="/Yazar/YazarGetir/@y.ID" class="btn btn-group" style="background-color:#2c7890;
+               color:white">Yazar Güncelle</a>
+            </td>
+            <td>
+                <a href="/Yazar/YazarKitaplar/@y.ID" class="btn btn-group" style="background-color:#d8783a;
+               color:white">Yazar'ın Kitapları</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a href="/Yazar/YazarEkle/" class="btn btn-primary">Yeni Yazar Ekle</a>

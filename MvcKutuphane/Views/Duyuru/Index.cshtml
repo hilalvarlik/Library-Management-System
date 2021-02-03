@@ -1,0 +1,38 @@
+﻿@using MvcKutuphane.Models.Entity
+@model List<TBLDUYURU>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<h2>Duyurular</h2>
+<table class="table table-striped">
+    <tr>
+        <th>Kategori</th>
+        <th>Tarih</th>
+        <th>İŞLEMLER</th>
+    </tr>
+    <tbody>
+        @foreach (var pr in Model)
+        {
+        <tr>
+            <td>@pr.KATEGORI</td>
+            <td>@Convert.ToDateTime(pr.TARIH).ToString("dd/MM/yyyy")</td>
+            <td>
+                <a href="/Duyuru/DuyuruSil/@pr.ID" class="btn btn-group" style="background-color:#893c94;
+                color:white">Duyuru Sil</a>&nbsp;&nbsp;
+                <a href="/Duyuru/DuyuruDetay/@pr.ID" class="btn btn-group" style="background-color:#92b1e5;
+                color:white"> Detaylar</a>&nbsp;&nbsp;
+                <a href="/Duyuru/DuyuruDetay/@pr.ID" class="btn btn-group" style="background-color:#edb0b0;
+                color:white">Duyuru Güncelle</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+<a href="/Duyuru/YeniDuyuru/" class="btn btn-primary">Yeni Duyuru Ekle</a>
+
+
+
+
+
